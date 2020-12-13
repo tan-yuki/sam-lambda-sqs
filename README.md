@@ -1,3 +1,38 @@
+## Build
+
+```
+sam build
+```
+
+## Deploy
+
+```
+sam build
+sam deploy --guided
+```
+
+## Test Lambda <-> SQS in locally
+
+Generate event data:
+
+```
+sam local generate-event sqs > ./events/event.json
+```
+
+Run lambda:
+
+```
+sam local start-lambda
+```
+
+Then, run lambda function:
+
+```
+aws lambda invoke --function-name HelloWorldFunction --endpoint http://127.0.0.1:3001/ --payload $(sam local generate-event sqs receive-message | base64 -w 0) ./output.txt
+```
+
+---
+
 # tutorial-sam
 
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
