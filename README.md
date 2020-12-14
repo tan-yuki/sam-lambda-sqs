@@ -33,7 +33,7 @@ aws lambda invoke --function-name HelloWorldFunction --endpoint http://127.0.0.1
 
 ---
 
-# tutorial-sam
+# sam-lambda-sqs
 
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
 
