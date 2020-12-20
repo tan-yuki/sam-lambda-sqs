@@ -13,19 +13,17 @@ sam deploy --guided
 
 ## Test Lambda <-> SQS in locally
 
-Generate event data:
+Run `sam local invoke`.
 
 ```
-sam local generate-event sqs > ./events/event.json
+sam local invoke -e ./events/event.json
 ```
 
-Run lambda:
+Or, run lambda daemon, then invoke event.
 
 ```
 sam local start-lambda
 ```
-
-Then, run lambda function:
 
 ```
 aws lambda invoke --function-name HelloWorldFunction --endpoint http://127.0.0.1:3001/ --payload $(sam local generate-event sqs receive-message | base64 -w 0) ./output.txt
@@ -33,7 +31,7 @@ aws lambda invoke --function-name HelloWorldFunction --endpoint http://127.0.0.1
 
 ---
 
-# sam-lambda-sqs
+# typescript-sam-lambda-sqs
 
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
 
