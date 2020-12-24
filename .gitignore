@@ -133,3 +133,4 @@ $RECYCLE.BIN/
 .aws-sam/
 output.txt
 samconfig.toml
+hello-world/dist
